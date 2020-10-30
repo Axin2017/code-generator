@@ -13,7 +13,7 @@ function Filter({
   filter,
   onFilterChange,
   lines,
-}){
+}) {
   return (
     <table className={fcStyles.filterContainer}>
       <tbody>
@@ -21,7 +21,7 @@ function Filter({
           <th>呼叫号码</th>
           <td>
             <Search
-              style={{"width":"320px"}}
+              style={{ "width": "320px" }}
               placeholder="输入要查询的号码，必填"
               maxLength={20}
               data={filter.get('phone')}
@@ -33,7 +33,7 @@ function Filter({
           <th>日志时间</th>
           <td>
             <DateRangePicker
-              options={[7,30,90]}
+              options={[7, 30, 90]}
               isMust={true}
               data={filter.get('dateRange')}
               onChange={(e) => { onFilterChange('dateRange', e.target.data); }}
@@ -46,22 +46,22 @@ function Filter({
           <td>
             <Select
               mode="multiple"
-              style={{"width":"200px"}}
+              style={{ "width": "200px" }}
               placeholder="请输入并选择线路"
               allowClear={true}
               data={filter.get('lineNames')}
               onChange={(e) => { onFilterChange('lineNames', e.target.data); }}
             >
-            {
-lines&&lines.map((item) => (<Option
-key={item._id}
-value={item._id}
->
-{item.line_name}
-</Option>))
-            }
+              {
+                lines && lines.map((item) => (<Option
+                  key={item._id}
+                  value={item._id}
+                >
+                  {item.line_name}
+                </Option>))
+              }
             </Select>
-            
+
           </td>
         </tr>
       </tbody>
@@ -69,10 +69,10 @@ value={item._id}
   );
 }
 
-Filter.propTypes = { 
-  filter: PropTypes.object, 
+Filter.propTypes = {
+  filter: PropTypes.object,
   onFilterChange: PropTypes.func,
-  lines: PropTypes.object, 
+  lines: PropTypes.object,
 };
 
 export default Filter;
